@@ -16,6 +16,7 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     plumber = require('gulp-plumber'),
     deploy = require('gulp-gh-pages'),
+    info   = require('./package.json'),
     notify = require('gulp-notify');
 
 var Config = {
@@ -98,7 +99,10 @@ gulp.task('browser-sync', function() {
 
 gulp.task('deploy', function() {
     return gulp.src(Config.paths.build.root + '/**/*')
-        .pipe(deploy());
+        .pipe(deploy({
+            'cacheDir': './tmp',
+            'remoteUrl': info.repository.url
+        }));
 });
 
 gulp.task('js', function() {
