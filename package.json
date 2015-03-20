@@ -1,6 +1,10 @@
 {
     "name": "yarsp-game",
     "version": "0.0.1",
+    "author": {
+        "name": "Razvan Moraru",
+        "email": "redcom@gmail.com"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/redcom/yarsp-game.git"
