@@ -1,5 +1,4 @@
-var argv = require('minimist')(process.argv.slice(2)),
-    gulp = require('gulp'),
+var gulp = require('gulp'),
     sass = require('gulp-sass'),
     rename = require('gulp-rename'),
     cssmin = require('gulp-minify-css'),
@@ -20,7 +19,6 @@ var argv = require('minimist')(process.argv.slice(2)),
     notify = require('gulp-notify');
 
 var Config = {
-    cache: (typeof argv.cache !== 'undefined' ? !! argv.cache : false),
     imagemin: {
         optimizationLevel: 3,
         progressive: true,
