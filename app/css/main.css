@@ -445,21 +445,16 @@ th:first-child, td:first-child {
 th:last-child, td:last-child {
   padding-right: 0; }
 
+.container {
+  display: none; }
+
+.container.active {
+  display: block; }
+
 h1 {
   margin: 15rem 0 13rem;
   text-align: center;
   color: blue; }
-
-.example-grid {
-  margin: 6rem 0 4rem; }
-  .example-grid .column, .example-grid .columns {
-    text-align: center;
-    background-color: #EEEEEE;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    border-radius: 5px;
-    padding: 5px 0;
-    margin-bottom: 2rem; }
 
 @media (max-width: 1000px) {
   body:after {
