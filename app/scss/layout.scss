@@ -1,3 +1,8 @@
+/*This is only for debug*/
+  body:after {
+    display: none !important; // change this to block element to see media query in action at the bottom of the page
+  }
+/*End debug*/
 .container {
     display: none;
 }
