@@ -32,22 +32,14 @@ var Config = {
             scss: 'app/scss',
             css: 'app/css',
             img: 'app/img',
-            lib: 'app/lib',
-            extra: [
-                //'app/foo/**/*',
-                //'app/bar/**/*'
-            ]
+            lib: 'app/lib'
         },
         build: {
             root: 'dist',
             js: 'dist/js',
             css: 'dist/css',
             img: 'dist/img',
-            lib: 'dist/lib',
-            extra: [
-                //'dist/foo/',
-                //'dist/bar/'
-            ]
+            lib: 'dist/lib'
         }
     }
 }
@@ -106,13 +98,25 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('js', function() {
-    gulp.src(Config.paths.app.js + '/*.js')
-        .pipe(uglify())
+    gulp.src([Config.paths.app.js + '/*.js', '!'+Config.paths.app.js + '/Module*.js'])
+        //.pipe(uglify())
         .pipe(size({
             gzip: true,
             showFiles: true
         }))
         .pipe(concat('j.js'))
+        .pipe(gulp.dest(Config.paths.build.js))
+        .pipe(reload({
+            stream: true
+        }));
+
+    gulp.src(Config.paths.app.js + '/Module*.js')
+        //.pipe(uglify())
+        .pipe(size({
+            gzip: true,
+            showFiles: true
+        }))
+        .pipe(concat('m.js'))
         .pipe(gulp.dest(Config.paths.build.js))
         .pipe(reload({
             stream: true

@@ -18,16 +18,18 @@ function initApplication() {
             }
         }
     });
-}
 
-MyGame.changePage = function changePage(page) {
-    switch (page) {
-        case 'page_game':
-            {
-                MyGame[page].triggerEvent('visibilityChanged');
-            }
-            break;
-        default:
-            break;
-    }
-};
+    // setting the game as RSP and initialize the engine with a new instance of the game
+    MyGame.gameEngine = GameEngine.init('rsp');
+
+    MyGame.changePage = function changePage(page) {
+        switch (page) {
+            case 'page_game': {
+                    MyGame[page].triggerEvent('visibilityChanged');
+                }
+                break;
+            default:
+                break;
+        }
+    };
+}

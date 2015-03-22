@@ -4,9 +4,64 @@
 .container.active {
     display: block;
 }
-
 h1 {
     margin: 15rem 0 13rem;
     text-align: center;
     color: blue;
+}
+.center {
+    text-align:center;
+}
+.tools {
+    list-style: none;
+    margin: 0;
+}
+/*RSP will hide lizared and spock*/
+.tools.rsp li:nth-child(4),
+.tools.rsp li:nth-child(5) {
+    display: none;
+}
+.tools li {
+    width: 21rem;
+    height: 20rem;
+    float: left;
+}
+.tool {
+    background: transparent url('../img/tools.png') no-repeat 0 0;
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+}
+.rock {
+    background-position-x: 0;
+}
+.paper {
+    background-position-x: -21rem;
+}
+.scissor {
+    background-position-x: -42rem;
+}
+.lizard {
+    background-position-x: -63rem;
+}
+.spock {
+    background-position-x: -84rem;
+}
+
+.scores {
+    margin-top: 4rem;
+}
+.playerChoice {
+    font-weight: bold; 
+}
+.playerChoice.red {
+    color: red;
+}
+
+.score {
+    margin: 0 auto;
+    width: 50%;
+    height: 30%;
+    border: 1px solid silver;
+    font-size: 3rem;
 }

@@ -19,7 +19,8 @@
             // only the buttons should perform an action
             if (evt.target.dataset) {
                 var player = evt.target.dataset.player;
-                P.theGamer = player;
+                P.gameEngine.setOpponent(player);
+
                 $current_page.removeClass('active');
                 P.changePage('page_game');
             }
