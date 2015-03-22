@@ -19,6 +19,11 @@
             // only the buttons should perform an action
             if (evt.target.dataset) {
                 var player = evt.target.dataset.player;
+                if (player!=='self') {
+                    //for computer 2 computer should be easy to change the logic. Just set a timeout to push the results to page_game
+                    alert('Not implemented yet');
+                    return;
+                }
                 P.gameEngine.setOpponent(player);
 
                 $current_page.removeClass('active');
