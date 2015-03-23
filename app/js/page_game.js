@@ -9,7 +9,7 @@
             registerPageListener();
         };
 
-        var init = function(page) { // initialize the moduule, save reference to dom
+        var init = function(page) { // initialize the module, save reference to dom
             $current_page = $(page);
             addEvents();
         };
