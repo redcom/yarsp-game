@@ -11,7 +11,7 @@ You need to install node
             To install all the dependencies used in the project
         $ gulp
             To run the project on http://localhost:3000
-$$Notes: 
+##Notes: 
 * gulp sass-lint need to have ruby gem scss-lint  installed. Please use gem install scss-lint
 * Tests are not written yet.
 * List the project entry points for new developers 
