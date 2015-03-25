@@ -24,3 +24,4 @@ You need to install node
  * Next step will be to add a test runner and start writing some tests. Next step will be to add a test runner and start writing some tests. Next step will be to add a test runner and start writing some tests 
  * It would be nice if we can websockets to offer the possibility for 2 real player to play in real time
 
+[![Build Status](https://travis-ci.org/redcom/yarsp-game.svg)](https://travis-ci.org/redcom/yarsp-game)

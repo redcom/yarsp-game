@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     plumber = require('gulp-plumber'),
     deploy = require('gulp-gh-pages'),
-    info   = require('./package.json'),
+    info = require('./package.json'),
+    karma = require('karma-as-promised'),
     notify = require('gulp-notify');
 
 var Config = {
@@ -40,7 +41,8 @@ var Config = {
             css: 'dist/css',
             img: 'dist/img',
             lib: 'dist/lib'
-        }
+        },
+        karmaConf: __dirname + '/karma.conf.js'
     }
 }
 
@@ -98,12 +100,12 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('js', function() {
-    gulp.src([Config.paths.app.js + '/*.js', '!'+Config.paths.app.js + '/Module*.js'])
-        //.pipe(uglify())
-        .pipe(size({
-            gzip: true,
-            showFiles: true
-        }))
+    gulp.src([Config.paths.app.js + '/*.js', '!' + Config.paths.app.js + '/Module*.js'])
+    //.pipe(uglify())
+    .pipe(size({
+        gzip: true,
+        showFiles: true
+    }))
         .pipe(concat('j.js'))
         .pipe(gulp.dest(Config.paths.build.js))
         .pipe(reload({
@@ -111,11 +113,11 @@ gulp.task('js', function() {
         }));
 
     gulp.src(Config.paths.app.js + '/Module*.js')
-        //.pipe(uglify())
-        .pipe(size({
-            gzip: true,
-            showFiles: true
-        }))
+    //.pipe(uglify())
+    .pipe(size({
+        gzip: true,
+        showFiles: true
+    }))
         .pipe(concat('m.js'))
         .pipe(gulp.dest(Config.paths.build.js))
         .pipe(reload({
@@ -160,6 +162,13 @@ gulp.task('imgmin', function() {
     return gulp.src(Config.paths.app.img + '/*')
         .pipe(imagemin(Config.imagemin))
         .pipe(gulp.dest(Config.paths.build.img));
+});
+
+gulp.task('test', function() {
+    return karma.server.start({
+        configFile: Config.paths.karmaConf,
+        singleRun: true
+    });
 });
 
 gulp.task('default', ['browser-sync', 'js', 'imgmin', 'minify-html', 'scss', 'watch']);

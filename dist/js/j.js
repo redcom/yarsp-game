@@ -45,7 +45,7 @@ function initApplication() {
             registerPageListener();
         };
 
-        var init = function(page) { // initialize the moduule, save reference to dom
+        var init = function(page) { // initialize the module, save reference to dom
             $current_page = $(page);
             addEvents();
         };
@@ -181,7 +181,7 @@ function initApplication() {
     P.page_welcome = (function() {
         var $current_page;
 
-        var init = function(page) { // initialize the moduule, save reference to dom
+        var init = function(page) { // initialize the module, save reference to dom
             $current_page = $(page);
             addEvents();
         };
