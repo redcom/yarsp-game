@@ -1,5 +1,6 @@
 ##Rock Paper Scissors Game
 [![Build Status](https://travis-ci.org/redcom/yarsp-game.svg)](https://travis-ci.org/redcom/yarsp-game)
+
 You can play the game at http://redcom.github.io/yarsp-game/dist/
 
 ##Install
